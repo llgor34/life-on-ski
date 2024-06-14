@@ -1,0 +1,21 @@
+.logo-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-container img {
+    height: 100%;
+}
+
+.logo-container .logo {
+    margin-left: 20px;
+}
+
+.quote {
+    text-transform: uppercase;
+    font-family: 'Babeus';
+    font-size: 25px;
+    align-self: center;
+}
