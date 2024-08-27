@@ -37,6 +37,7 @@
     --secondary-color: #fff;
     --secondary-alternative: #000;
     --ui-background-color: #181818;
+    --ui-background-color-hover: #222;
 }
 
 a {

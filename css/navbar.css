@@ -92,6 +92,11 @@
         text-align: center;
     }
 
+    .nav-links li:hover {
+        filter: none;
+        background-color: var(--ui-background-color-hover);
+    }
+
     .mobile-button {
         display: block;
     }

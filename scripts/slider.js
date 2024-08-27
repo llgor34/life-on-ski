@@ -120,45 +120,35 @@ function main() {
 function initSlider(sliderContainer, imgItems) {
     resetElementHTML(sliderContainer);
 
-    const sliderWrapper = createSliderWrapper(sliderContainer);
-    const sliderNav = createSliderNav(sliderContainer);
+    const { sliderWrapper, imgElements } = createSliderImages(imgItems);
+    const navigation = createSliderNavigation();
+
+    sliderContainer.appendChild(sliderWrapper);
+    sliderContainer.appendChild(navigation);
+
+    startSliderTimer(sliderWrapper, imgElements);
+}
+
+function createSliderImages(imgItems) {
+    const sliderWrapper = createSliderImgWrapper();
 
     const imgElements = [];
-    const navElements = [];
     for (const [idx, imgItem] of imgItems.entries()) {
         const id = getImgTemplateId(idx);
-
         const imgElement = getImgTemplate(imgItem, id);
-        const navElement = getImgNavTemplate(id);
 
-        sliderNav.appendChild(navElement);
-        sliderWrapper.appendChild(imgElement);
-
-        navElements.push(navElement);
         imgElements.push(imgElement);
+        sliderWrapper.appendChild(imgElement);
     }
 
-    addNavLogic(sliderWrapper, navElements, imgElements);
+    return { sliderWrapper, imgElements };
 }
 
-function createSliderWrapper(container) {
+function createSliderImgWrapper() {
     const wrapper = document.createElement('div');
     wrapper.classList.add('img-slider-wrapper');
-    container.appendChild(wrapper);
 
     return wrapper;
-}
-
-function createSliderNav(container) {
-    const nav = document.createElement('nav');
-    nav.classList.add('img-slider-nav');
-    container.appendChild(nav);
-
-    return nav;
-}
-
-function resetElementHTML(element) {
-    element.innerHTML = '';
 }
 
 function getImgTemplateId(idx) {
@@ -189,44 +179,71 @@ function getImgTemplate(imgItem, id) {
     return wrapper;
 }
 
-function getImgNavTemplate(id) {
-    const a = document.createElement('a');
-    a.setAttribute('href', `#${id}`);
-    return a;
+function createSliderNavigation() {
+    const navContainer = createNavContainer();
+    const leftArrowButton = createArrowButton('left-arrow');
+    const rightArrowbutton = createArrowButton('right-arrow');
+
+    addArrowButtonToNav(leftArrowButton, navContainer);
+    addArrowButtonToNav(rightArrowbutton, navContainer);
+
+    return navContainer;
 }
 
-function addNavLogic(wrapper, navElements, imgElements) {
-    let intervalId = startSliderTimer(wrapper, imgElements);
+function createNavContainer() {
+    const nav = document.createElement('nav');
+    nav.classList.add('img-slider-nav');
+    return nav;
+}
 
-    for (const navElement of navElements) {
-        navElement.addEventListener('click', (e) => {
-            e.preventDefault();
-            if (intervalId) {
-                clearInterval(intervalId);
-                intervalId = null;
+function createArrowButton(id) {
+    const arrowButton = document.createElement('button');
+    arrowButton.setAttribute('id', id);
+    return arrowButton;
+}
+
+function addArrowButtonToNav(arrowButton, navContainer) {
+    navContainer.appendChild(arrowButton);
+}
+
+function resetElementHTML(element) {
+    element.innerHTML = '';
+}
+
+function startSliderTimer(wrapper, imgElements, startingIdx = 0) {
+    let currentIdx = startingIdx;
+    let interval = null;
+    const startInterval = () =>
+        setInterval(() => {
+            currentIdx++;
+            if (currentIdx === imgElements.length) {
+                currentIdx = 0;
             }
 
-            const imgElementId = navElement.getAttribute('href');
-            const imgElementIdx = imgElements.map((el) => el.querySelector(imgElementId)).findIndex((el) => !!el);
-            scrollIntoElement(wrapper, imgElements[imgElementIdx]);
+            scrollIntoElement(wrapper, imgElements[currentIdx]);
+        }, INTERVAL_TIMEOUT);
 
-            intervalId = startSliderTimer(wrapper, imgElements, imgElementIdx);
-        });
-    }
+    interval = startInterval();
+    wrapper.addEventListener('scroll', () => {
+        if (interval !== null) {
+            clearInterval(interval);
+            interval = null;
+        }
+    });
+    wrapper.addEventListener('scrollend', () => {
+        if (interval === null) {
+            currentIdx = getCurrentImgIdx(imgElements);
+            interval = startInterval();
+        }
+    });
 }
 
-function startSliderTimer(wrapper, imgElements, startingIdx = 1) {
-    let currentIdx = startingIdx;
-    const intervalId = setInterval(() => {
-        currentIdx++;
-        if (currentIdx === imgElements.length) {
-            currentIdx = 0;
-        }
+function getCurrentImgIdx(imgElements) {
+    const imgWrapper = imgElements.filter((element) => element.getBoundingClientRect().left === 0)[0];
+    const imgId = imgWrapper.querySelector('img').getAttribute('id');
+    const imgIdx = imgId.split('-')[1] - 1;
 
-        scrollIntoElement(wrapper, imgElements[currentIdx]);
-    }, INTERVAL_TIMEOUT);
-
-    return intervalId;
+    return imgIdx;
 }
 
 function scrollIntoElement(wrapper, imgElement) {
