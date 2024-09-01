@@ -40,13 +40,13 @@
     --ui-background-color-hover: #222;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 a {
     color: inherit;
     text-decoration: inherit;
-}
-
-main {
-    padding: 50px;
 }
 
 .highlight-primary {
@@ -98,4 +98,8 @@ main {
 
 .text-content h2.no-padding-top {
     padding-top: 0;
+}
+
+main > section {
+    padding: 0 50px;
 }

@@ -3,6 +3,11 @@
     color: #fff;
     padding: 30px;
     margin-top: 30px;
+    display: flex;
+}
+
+.footer > section {
+    width: calc(100% / 3);
 }
 
 .footer ul {
@@ -24,8 +29,9 @@
 }
 
 .footer img {
-    height: 25px;
-    width: 25px;
+    --img-size: 35px;
+    height: var(--img-size);
+    width: var(--img-size);
 }
 
 .footer h2 {

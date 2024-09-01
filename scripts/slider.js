@@ -121,10 +121,7 @@ function initSlider(sliderContainer, imgItems) {
     resetElementHTML(sliderContainer);
 
     const { sliderWrapper, imgElements } = createSliderImages(imgItems);
-    const navigation = createSliderNavigation();
-
     sliderContainer.appendChild(sliderWrapper);
-    sliderContainer.appendChild(navigation);
 
     startSliderTimer(sliderWrapper, imgElements);
 }
@@ -177,33 +174,6 @@ function getImgTemplate(imgItem, id) {
     wrapper.appendChild(img);
     wrapper.appendChild(text);
     return wrapper;
-}
-
-function createSliderNavigation() {
-    const navContainer = createNavContainer();
-    const leftArrowButton = createArrowButton('left-arrow');
-    const rightArrowbutton = createArrowButton('right-arrow');
-
-    addArrowButtonToNav(leftArrowButton, navContainer);
-    addArrowButtonToNav(rightArrowbutton, navContainer);
-
-    return navContainer;
-}
-
-function createNavContainer() {
-    const nav = document.createElement('nav');
-    nav.classList.add('img-slider-nav');
-    return nav;
-}
-
-function createArrowButton(id) {
-    const arrowButton = document.createElement('button');
-    arrowButton.setAttribute('id', id);
-    return arrowButton;
-}
-
-function addArrowButtonToNav(arrowButton, navContainer) {
-    navContainer.appendChild(arrowButton);
 }
 
 function resetElementHTML(element) {
