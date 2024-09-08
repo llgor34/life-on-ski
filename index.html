@@ -11,6 +11,7 @@
 
         <script defer src="./scripts/slider.js"></script>
         <script defer src="./scripts/navbar.js"></script>
+        <script defer src="./scripts/gallery.js"></script>
         <script async src="https://unpkg.com/typer-dot-js@0.1.0/typer.js"></script>
 
         <!-- <a href="https://www.flaticon.com/free-icons/phone" title="phone icons">Phone icons created by iconmas - Flaticon</a> -->
@@ -38,12 +39,12 @@
         </nav>
 
         <aside class="logo-container">
-            <img class="logo" src="./img/life-on-ski-logo.png" alt="Life On Ski" />
+            <img class="logo" src="./img/logo1.png" alt="Life On Ski" />
             <div class="quote">
                 <span class="typer" id="main" data-words="Skiing is not a lifestyle. It's life" data-delay="50" data-deleteDelay="1000"></span>
                 <span class="cursor" data-owner="main"></span>
             </div>
-            <img src="./img/mis.png" alt="Polarny miś na nartach" />
+            <img id="logo-right-img" src="./img/mis.png" alt="Polarny miś na nartach" />
         </aside>
 
         <section class="img-slider" img-slider></section>
@@ -96,6 +97,30 @@
                     </section>
                 </article>
             </section>
+
+            <section id="galeria">
+                <header><h2 class="main-header">Galeria</h2></header>
+                <div class="photos-container" gallery>
+                    <a href="./img/main-slider/image1.jpg" target="_blank" class="photo">
+                        <img src="./img/main-slider/image1.jpg" alt="zdjęcie" />
+                    </a>
+                    <a href="./img/main-slider/image1.jpg" target="_blank" class="photo">
+                        <img src="./img/main-slider/image1.jpg" alt="zdjęcie" />
+                    </a>
+                    <a href="./img/main-slider/image1.jpg" target="_blank" class="photo">
+                        <img src="./img/main-slider/image1.jpg" alt="zdjęcie" />
+                    </a>
+                    <a href="./img/main-slider/image1.jpg" target="_blank" class="photo">
+                        <img src="./img/main-slider/image1.jpg" alt="zdjęcie" />
+                    </a>
+                    <a href="./img/main-slider/image1.jpg" target="_blank" class="photo">
+                        <img src="./img/main-slider/image1.jpg" alt="zdjęcie" />
+                    </a>
+                    <a href="./img/main-slider/image1.jpg" target="_blank" class="photo">
+                        <img src="./img/main-slider/image1.jpg" alt="zdjęcie" />
+                    </a>
+                </div>
+            </section>
         </main>
 
         <footer class="footer">
@@ -133,7 +158,7 @@
                 <header>
                     <h2>Life On Ski</h2>
                 </header>
-                <p>Szkoła narciarska, której celem jest udoskonalanie umiejętności, poprawa techniki jazdy, a przede wszystkim - dobra zabawa 😎</p>
+                <p>Szkoła narciarska, której celem jest udoskonalanie umiejętności oraz dobra zabawa 😎</p>
             </section>
         </footer>
     </body>

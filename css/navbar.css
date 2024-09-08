@@ -100,4 +100,8 @@
     .mobile-button {
         display: block;
     }
+
+    .sponsors img {
+        max-height: 25px;
+    }
 }

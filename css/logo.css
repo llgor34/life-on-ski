@@ -1,6 +1,6 @@
 .logo-container {
     width: 100%;
-    height: 100px;
+    height: 120px;
     display: flex;
     justify-content: space-between;
 }
@@ -18,4 +18,19 @@
     font-family: 'Babeus';
     font-size: 25px;
     align-self: center;
+}
+
+/* mobile view */
+@media screen and (max-width: 1000px) {
+    .logo-container {
+        height: 80px;
+    }
+
+    .quote {
+        font-size: 20px;
+    }
+
+    #logo-right-img {
+        display: none;
+    }
 }
