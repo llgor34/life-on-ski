@@ -60,19 +60,17 @@ a {
 .main-header {
     font-family: 'Anta';
     font-size: 40px;
-    font-weight: bold;
+    font-weight: normal;
     text-align: center;
     text-transform: uppercase;
     padding: 50px;
-    background-color: var(--secondary-color);
-    color: var(--ui-background-color);
+    background-color: var(--ui-background-color);
+    color: var(--primary-color);
 }
 
 .text-content {
     position: relative;
-    padding: 30px;
-    margin: 0 30px;
-    border-radius: 20px;
+    padding: 50px;
     font-family: 'Quicksand';
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -80,7 +78,6 @@ a {
 }
 
 .text-content img {
-    border-radius: 20px;
     width: 100%;
     height: 100%;
     position: absolute;
@@ -98,8 +95,4 @@ a {
 
 .text-content h2.no-padding-top {
     padding-top: 0;
-}
-
-main > section {
-    padding: 0 50px;
 }
