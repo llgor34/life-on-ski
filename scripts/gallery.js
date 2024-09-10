@@ -1,40 +1,42 @@
-// todo: finish
-// const photosContainer = document.querySelector('[gallery]');
+const photosContainer = document.querySelector('[gallery]');
 
-// function main() {
-//     clearPhotosContainer();
-//     const photos = getPhotosToDisplay();
-//     displayPhotos(photos);
-// }
+function main() {
+    clearPhotosContainer();
+    const photos = getPhotosToDisplay();
+    displayPhotos(photos);
+}
 
-// function clearPhotosContainer() {
-//     photosContainer.innerHTML = '';
-// }
+function clearPhotosContainer() {
+    photosContainer.innerHTML = '';
+}
 
-// function getPhotosToDisplay() {
-//     const photoNodes = [];
-//     for (let i = 0; i < 100; i++) {
-//         const photoLink = document.createElement('a');
+function getPhotosToDisplay() {
+    const photoNodes = [];
+    for (let i = 0; i < 34; i++) {
+        const photoIdx = i + 1;
+        const photoUrl = `./img/photos/image${photoIdx}.jpg`;
 
-//         photoLink.classList.add('photo');
+        const photoLink = document.createElement('a');
 
-//         photoLink.setAttribute('href', HREF!!!);
-//         photoLink.setAttribute('target', '_blank');
+        photoLink.classList.add('photo');
 
-//         const photoImage = document.createElement('img');
-//         photoImage.setAttribute('src', HREF!!!);
-//         photoImage.setAttribute('alt', 'zdjęcie');
+        photoLink.setAttribute('href', photoUrl);
+        photoLink.setAttribute('target', '_blank');
 
-//         photoLink.appendChild(photoImage);
-//         photoNodes.push(photoLink);
-//     }
-//     return photoNodes;
-// }
+        const photoImage = document.createElement('img');
+        photoImage.setAttribute('src', photoUrl);
+        photoImage.setAttribute('alt', 'zdjęcie');
 
-// function displayPhotos(photos) {
-//     for (const photo of photos) {
-//         photosContainer.appendChild(photo);
-//     }
-// }
+        photoLink.appendChild(photoImage);
+        photoNodes.push(photoLink);
+    }
+    return photoNodes;
+}
 
-// main();
+function displayPhotos(photos) {
+    for (const photo of photos) {
+        photosContainer.appendChild(photo);
+    }
+}
+
+main();

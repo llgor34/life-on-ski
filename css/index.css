@@ -1,6 +1,7 @@
 @import './navbar.css';
 @import './logo.css';
 @import './img-slider.css';
+@import './photos-library.css';
 @import './footer.css';
 
 @font-face {
@@ -95,22 +96,6 @@ a {
 
 .text-content h2.no-padding-top {
     padding-top: 0;
-}
-
-.photos-container {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    grid-template-columns: repeat(8, 5vw);
-}
-
-.photos-container .photo {
-    display: block;
-}
-
-.photos-container .photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 /* mobile view */
