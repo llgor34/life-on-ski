@@ -27,15 +27,19 @@
     transition: filter 0.2s ease;
 }
 
+.nav-links a {
+    display: contents;
+}
+
 .nav-links li:hover {
     filter: brightness(60%);
 }
 
-.nav-links li:nth-child(odd) {
+.nav-links a:nth-child(odd) {
     color: var(--primary-color);
 }
 
-.nav-links li:nth-child(even) {
+.nav-links a:nth-child(even) {
     color: var(--secondary-color);
 }
 
