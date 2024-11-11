@@ -55,6 +55,10 @@ a {
     text-decoration: inherit;
 }
 
+.text-uppercase {
+    text-transform: uppercase;
+}
+
 .fw-light {
     font-weight: 200;
 }
