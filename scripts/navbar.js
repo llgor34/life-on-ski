@@ -30,7 +30,7 @@ function getElementSelector(element) {
 
 function closeNavbarIfNecessary() {
     return new Promise((resolve, reject) => {
-        if (navbar.classList.contains('active')) {
+        if (navbar.classList.contains('active') && window.screen.width <= 1000) {
             navbar.classList.remove('active');
             navbar.addEventListener('transitionend', resolve);
         } else {
