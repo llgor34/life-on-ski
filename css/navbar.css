@@ -22,24 +22,24 @@
 }
 
 .nav-links li {
+    display: contents;
+}
+
+.nav-links a {
     padding: 20px 0;
     cursor: pointer;
     transition: filter 0.2s ease;
 }
 
-.nav-links a {
-    display: contents;
-}
-
-.nav-links li:hover {
+.nav-links a:hover {
     filter: brightness(60%);
 }
 
-.nav-links a:nth-child(odd) {
+.nav-links li:nth-child(odd) a {
     color: var(--primary-color);
 }
 
-.nav-links a:nth-child(even) {
+.nav-links li:nth-child(even) a {
     color: var(--secondary-color);
 }
 
@@ -95,12 +95,12 @@
         transition: all 0.4s ease;
     }
 
-    .nav-links li {
+    .nav-links a {
         width: 100%;
         text-align: center;
     }
 
-    .nav-links li:hover {
+    .nav-links a:hover {
         filter: none;
         background-color: var(--ui-background-color-hover);
     }
