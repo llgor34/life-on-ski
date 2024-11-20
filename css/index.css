@@ -36,8 +36,9 @@
     font-family: sans-serif;
     --primary-color: #f1ed0e;
     --strong-color: #cca135;
-    --secondary-color: #fff;
+    --secondary-color: #ddd;
     --secondary-alternative: #000;
+    --third-color: #222;
     --ui-background-color: #181818;
     --ui-background-color-hover: #222;
 }
@@ -47,7 +48,7 @@ html {
 }
 
 body {
-    color: #fff;
+    color: var(--secondary-color);
 }
 
 a {
@@ -88,7 +89,47 @@ a {
     font-family: 'Quicksand';
     font-size: 20px;
     background-color: rgba(0, 0, 0, 0.6);
-    color: #ddd;
+    color: var(--secondary-color);
+}
+
+.text-content-secondary {
+    color: var(--secondary-color);
+    background-color: var(--third-color);
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.text-content-secondary h3 {
+    font-size: 1.8rem;
+    font-family: 'Anta';
+    text-transform: uppercase;
+}
+
+.text-content-secondary p {
+    font-size: 1.6rem;
+    margin-top: 10px;
+}
+
+.text-content-secondary > section {
+    padding: 50px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    row-gap: 20px;
+}
+
+.contact-img {
+    width: 100px;
+}
+
+.contact-img img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
 }
 
 .text-content > section {
