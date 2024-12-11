@@ -132,6 +132,10 @@ a {
     border-radius: 50%;
 }
 
+.contact-img.logo {
+    width: 300px;
+}
+
 .text-content > section {
     max-width: 1000px;
     margin-left: auto;

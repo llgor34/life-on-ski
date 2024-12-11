@@ -38,15 +38,26 @@
 .footer h2 {
     font-family: 'Babeus';
     font-size: 24px;
-    font-weight: normal;
     margin-bottom: 5px;
+    font-weight: normal;
     text-transform: uppercase;
 }
 
 .footer h3 {
     font-family: 'Anta';
     font-size: 18px;
+    margin-bottom: 5px;
     font-weight: normal;
+    text-align: center;
+}
+
+.footer .contact-us p {
+    color: var(--primary-color);
+}
+
+.footer .contact-us li:hover {
+    background-color: initial;
+    cursor: auto;
 }
 
 /* mobile view */
