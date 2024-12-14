@@ -186,6 +186,15 @@ a {
     padding-top: 0;
 }
 
+.cite {
+    font-style: italic;
+}
+
+.cite::before,
+.cite::after {
+    content: '"';
+}
+
 ul li {
     padding: 5px 0;
 }
