@@ -132,8 +132,9 @@ a {
     border-radius: 50%;
 }
 
-.contact-img.logo {
-    width: 300px;
+.contact-img.logo img {
+    width: 100%;
+    scale: 2;
 }
 
 .text-content > section {
