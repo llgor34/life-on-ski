@@ -2,6 +2,7 @@
 @import './logo.css';
 @import './img-slider.css';
 @import './photos-library.css';
+@import './img-preview.css';
 @import './footer.css';
 
 @font-face {
@@ -49,6 +50,11 @@ html {
 
 body {
     color: var(--secondary-color);
+}
+
+body.disable-scroll {
+    height: 100%;
+    overflow: hidden;
 }
 
 a {
